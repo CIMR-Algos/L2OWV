@@ -2,9 +2,6 @@
 
 
 
-
-
-
 ### Input data
 
 ```{table} Input Data

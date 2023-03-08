@@ -609,9 +609,11 @@ the harmonics coefficients $\Delta e_p^{(i)}$ at each of the 5 CIMR frequencies 
 
 #### Wind-induced isotropic emissivity $\Delta e_{p,f}^{(0)}$ 
 
+##### Low to Moderate Wind speed ($U_{10}<17$ m/s) GMF's
+
 Note that for the  6.9, 10.65, 18.7, and 36.5 GHz CIMR mutliple horns, the earth incidence angle $\theta_s$ is varying from 54.6° to 56.2° depending on the horn. The {cite:t}`meissner2012emissivity`'s GMFs
- are provided at a reference incidence angle of $\theta_{ref}$=55.2° for these frequencies but small $\theta_s$ 
- variation can be accounted for as follows. At nadir, both $\Delta e_{rh,f}^{(0)}(\theta_s=0)$ and $\Delta e_{rv,f}^{(0)}(\theta_s=0)$
+ are provided at a reference incidence angle of $\theta_{ref}$=55.2° for these frequencies. As well the L-band Aquarius and SMAP GMF's ({cite:t}`meissner2018salinity`) 
+ are provided at  $\theta_{ref}$=29.36°,38.44°, 40°, and 46.29°, but small $\theta_s$  variation can be accounted for as follows. At nadir, both $\Delta e_{rh,f}^{(0)}(\theta_s=0)$ and $\Delta e_{rv,f}^{(0)}(\theta_s=0)$
 have the same value $\Delta e_{f}^{nad,(0)}$. The results from {cite:t}`hollinger1971passive` and {cite:t}`4072619`
 suggest that $\Delta e_{f}^{nad,(0)}$ is approximately given by the arithmetic average of the v-pol and h-pol values at 
 around $\theta_{ref}=$55°:
@@ -693,6 +695,49 @@ This behaviour is due to resonance in the scattering functions, occurring at wav
  at reference incidence angle $\theta_{ref}$=51.95° (L-band) 
  and $\theta_{ref}$=55.2° (C-, X-, Ku- and Ka bands).
 
+##### High Wind speed ($U_{10}>17$ m/s) isotropic GMF's
+
+Note: this subsection is preliminary: will be completed for version 2.
+
+One important feature that is obvious from  {numref}`allband_CIMR_isotropic_GMF` is the linear rise at high wind speeds of the isotropic
+part, which is by far the largest term in the wind-induced emissivity. In contrast to the radar
+backscatter GMF, which starts to saturate above 25 m/s, the wind-induced emissivity keeps good sensitivity
+even at very high wind speeds. The good sensitivity of the emissivity at high wind speeds has also been
+observed at 1.4 GHz from SMOS {cite:t}`Reul2012`, Aquarius {cite:t}`Fore2016` and SMAP {cite:t}`Meissner2017`. It is due to the emission from foam covered ocean surface, which
+becomes the dominant mechanism in the surface emission at higher wind speeds. The same behaviors are
+observed in the GMF for both emissivity at higher frequencies ({cite:t}`Uhlhorn2007`;{cite:t}`meissner2012emissivity`. Another difference between
+emissivity and radar backscatter GMF is that there is no sensitivity loss of DEW0 to wind speed at cross-wind
+observations. This can be seen from Figures 5 and 6, as the magnitude of the isotropic part A0 is much
+larger than the one of the higher harmonics A1 and A2, which depend on wind direction. Thus, the impact
+of wind direction on the total value (7) is small. Both of these differences between passive and active Lband
+sensors will become important in section 5 for the measurement of L-band wind speeds.
+
+```{figure} High_wind_Lband_GMF_iso_CIMR.png
+---
+name: High_wind_Lband_GMF_iso_CIMR
+---
+Isotropic wind induced emissivity at L-, C- and X- band for High wind conditions. The GMF are for the CIMR L-band horn nominal 
+incidence angle of $\theta_{ref}$=52° and C- and X-band nominal incidence angle of  $\theta_{ref}$=55°. 
+
+```
+In the present ATBD, and to perform OWV retrievals in storm conditions ($U_{10}$>~17 m.s$^{-1}$~34 kt), we propose to rely on the C-, X-, and L-band GMF high wind 
+empirical model for  $\Delta e^{(o,p)} (U_{10},θ_s)$ as compiled from SMFR, WindSat, SMAP and SMOS high wind data by ({cite:t}`Uhlhorn2007`;
+{cite:t}`Soisuvarn2007`;{cite:t}`meissner2009wind`;{cite:t}`meissner2012emissivity`;
+{cite:t}`meissner2014emission`;{cite:t}`Reul2016`;{cite:t}`Fore2016`; {cite:t}`Reul2017`;{cite:t}`Meissner2017`;{cite:t}`Fore2018`;{cite:t}`Hwang2019a`,{cite:t}`rs13091641`).  These are empirical fits through an ensemble 
+of radiometer observations that were specifically acquired in high wind conditions, such as during Tropical cyclones intercepts. 
+
+Following the approach used for WindSat and SMAP high wind speed retrievals ({cite:t}`meissner2014emission`,{cite:t}`yueh2016`;{cite:t}`Meissner2017`), the isotropic wind 
+induced emissivity at L- band is extrapolated from the low to moderate wind GMFs using a linear approximation for High wind conditions 
+$U_{10}$>~17 m.s$^{-1}$ (see  {numref}`High_wind_Lband_GMF_iso_CIMR`).
+In the context of training a radiometer wind retrieval algorithm
+in storms, {cite:t}`meissner2009wind` determined the wind-induced emissivity at high
+wind speeds for the WindSat channels from Wind measurements
+that had been collocated with the wind speed and directions
+from the Hurricane Research Division analysis (HRD). The challenge hereby is to remove
+the effect of the raining atmosphere, as most of the high wind
+speeds in tropical storms are heavily contaminated by rain. In {cite:t}`meissner2012emissivity`
+special emphasis was made on the behavior of WindSat $T_B$'s at high wind speeds between 20 and 40 m/s by conducting a comparison with
+data from the Step Frequency Microwave Radiometer (SFMR,{cite:p}`Uhlhorn2003VerificationOR`).
  
 #### Wind-induced anisotropic emissivity $\Delta e_{p=v,h,U,V,f}^{(i=1,2)}$
  
@@ -734,6 +779,7 @@ at L, C, X, Ku and Ka-band for (a) V-polarization, (b) H-polarization, (c) Third
 incidence angle of $\theta_{ref}$=46.8° and the C, X, Ku, and Ka -band are at $\theta_{ref}$=55.2°.
 
 ```
+
 As shown in {numref}`HVpol_allband_CIMR_anisotropic_1_GMF`, the amplitude of the first harmonic coefficients 
 ($\Delta e_{v,f}^{(1)}$, $\Delta e_{h,f}^{(1)}$, $\Delta U_{f}^{(1)}$, $\Delta V_{f}^{(1)}$), characterizing the upwind–downwind asymmetry of the excess surface 
 emissivity,  is small for low winds and it increases with increasing wind speed.  The relative polarization behavior is
@@ -822,6 +868,17 @@ inability to measure wind direction exactly from Space as the signal is relative
  below 0.5 K peak-to-peak for most wind speed conditions < 15 m/s, making the retrieval of wind direction from L-band third stokes rather challenging. 
  Note however that according to Aquarius and SMAP data, $V$ directional asymmetries seem larger at L-band than at the higher CIMR frequencies-band. 
 
+
+##### High Wind speed ($U_{10}>17$ m/s) anisotropic GMF's
+
+Note: this subsection is preliminary: will be completed for version 2.
+
+
+Simulations and observations indicate the anisotropy of L-band ocean emissivities for V- and H- pol
+would be saturated at high wind speeds. The directional signals at the third Stokes component begin to converge
+at around the wind speed of 24 m/s {cite:t}`MA2021112661`. The L-band TB variations due to wind direction for the third Stokes
+parameter show less sensitivity to wind speed at larger observation angles, while the direction-induced TB
+variations for the fourth Stokes are more sensitive to wind speed with the increase of observation angle.
 
 
 #### Functionnal flow diagram
@@ -959,8 +1016,9 @@ $$
 $$ (eqatm9)
 
 where $N_0$, $N'$, and $N''$ are all real quantities that depend upon
-the atmospheric state.  $N_0$ is independent of frequency while $N'$
-and $N''$ depend on frequency, in general. The real and imaginary
+the atmospheric state.  The nondispersive part $N_0$ is real and positive and independent of frequency while $N'_0$
+and $N''$ depend on frequency, in general. Refractivity is easily converted into path-sêcific propagation rates; i.e.,the imaginary part of [Equation](eqatm9) 
+lead to power attenuation. The real and imaginary
 parts of complex index of refraction are related to the real and
 imaginary parts of the complex wavenumber by the equations
 
@@ -1094,15 +1152,16 @@ of indices of refraction owing to :
 
 - molecular oxygen ($ \tilde{N}_D$),
 - water vapor ($ \tilde{N}_V$), 
-- cloud water ($ \tilde{N}_W$), and,
-- ice water ($ \tilde{N}_I$), 
+- cloud water ($ \tilde{N}_W$), 
+- ice water ($ \tilde{N}_I$), and,
+- rain ($ \tilde{N}_R$), 
 
 so that
 
 $$
 \begin{eqnarray}
 \tilde{N}(T_r,e,p_d,f) = \tilde{N}_0 + \tilde{N}' + i\tilde{N}''
-= \tilde{N}_D(T_r,e,p_d,f) +\tilde{N}_V(T_r,e,p_d,f) + \tilde{N}_W(T_r,\rho_w,f) + \tilde{N}_I(T_r,\rho_i,f)
+= \tilde{N}_D(T_r,e,p_d,f) +\tilde{N}_V(T_r,e,p_d,f) + \tilde{N}_W(T_r,\rho_w,f) + \tilde{N}_I(T_r,\rho_i,f)+ \tilde{N}_R(R,z,f)
 \quad\mbox{[ppm]},\nonumber
 \end{eqnarray}
 $$(eqatm18)
@@ -1111,8 +1170,8 @@ where :
 - $p_d$ and $e$ are the partial pressures of dry air and water
 vapor (hPa), respectively; 
 - $\rho_w$ and $\rho_i$ are the liquid water and ice densities (g.m$^{-3}$), respectively; 
-
--$T_r$ is the *reciprocal temperature*, defined by
+- $R$ is rain rate at altitude $z$,
+- $T_r$ is the *reciprocal temperature*, defined by
 
 $$
 \begin{eqnarray}
@@ -1428,6 +1487,30 @@ a_i &=& (T_r-0.171)\exp{\left[17.0 - 22.1 T_r\right]}\quad\mbox{[GHz]},\\
 b_i &=& 1\times 10^{-5}\left[\left(\frac{0.233}{1-0.993/T_r}\right)^2 + \frac{6.33}{T_r} - 1.31\right]\quad\mbox{[GHz$^{-1}$]}.
 \end{eqnarray}
 $$ (eqatm45)
+
+
+
+###### Formulation of the index of refraction for rain
+
+
+Refractivity of rain, $N_R$ is governed by absorption and scattering effects. 
+Substantial interactions take place when drop diameters (0.1 to 5 mm) and radio wavelengths
+become comparable. Bypassing elaborate, lengthy Mie calculations
+which require drop shape and size distributions as
+well as the dielectric permittivity of water, the
+following approximations are used,
+
+
+$$
+\begin{eqnarray}
+\tilde{N}_R(R,z,f) &=& R\cdot (0.012 R-3.7)\cdot \displaystyle\frac{y^{2.5}}{f_R(1+y^{2.5})}+i\cdot c_R R^z
+\end{eqnarray}
+$$  (eqatm45a)
+
+where $R$ is the rain rate in [mm/h], $z$ the altitude, $y=f/f_R$, $f_R=53-R(0.37-0.0015R)$, $c_R=x_1\cdot f^{y_1}$ and $z=x_2\cdot f^{y_2}$, where
+$x_1$=3.51e-4, $y_1$=1.03, $x_2$=0.851 and $y_2$=0.158 for f=1.4 GHz and $x_1$=2.31e-4, $y_1$=1.42, $x_2$=1.41 and $y_2$=-0.0779 for 
+the 4 higher frequencies of CIMR.
+
 
 ##### Propagation Effects on the Stokes Vector
 
@@ -2176,6 +2259,59 @@ the 1-way atmospheric transmittances associated with molecular oxygen absorption
  along a line of sight at angle $θ_s$ from nadir and $T_{ea}$, the unpolarized brightness temperature of atmospheric 1-way emission.
 ```
 
+
+### All Weather Algorithm
+
+Note: this subsection is preliminary: will be completed for version 2.
+
+
+#### Rain Attenuation at L-, C-, and X-band
+
+It is difficult to measure radiometer wind speeds in rainy conditions which are often encountered simultaneously with high wind conditions. 
+Rain increases the atmospheric attenuation, especially at frequencies higher than L-band, such as C- and X-bands. The brightness temperature signal 
+and therefore the signal to noise ratio decreases with the square of the atmospheric transmittance $\tau$. Therefore under rain the radiometer 
+measurement is less sensitive to the surface wind speed.
+
+By assuming the that the vertical atmospheric temperature profile $T_{eff}(h)$ is isothermal and therefore independent on *h* and that it is also 
+equal to the surface temperature $T_s$,  that there are no surface scattering of sky radiation, {cite:t}`meissner2009wind` have shown that the 
+Top Of the Atmosphere brightness can be related to the surface reflectivity $R_p$ using:
+
+$$
+\begin{matrix}
+T_{BV}=(1-R_V\tau^2)T_{eff} \\ 
+T_{BH}=(1-R_H\tau^2)T_{eff} \\
+\end{matrix}
+$$ (eq:AW1)
+
+where $\tau$ is the atmospheric transmittance. If there is scattering in the atmosphere due to rain, the expressions above remain still valid but the 
+effective temperature $T_{eff}$ is smaller than the atmospheric temperature ({cite:p}`hilburn2008intercalibrated`,{cite:p}`wentz1998ssm`, {cite:p}`meissner2009wind`). 
+
+It is very difficult to accurately model brightness temperatures in rain. 
+Because of the high variability of rainy atmospheres, the brightness temperatures depend on cloud type and the distribution of rain within the footprint (beamfilling). 
+In addition, with increasing frequency and increasing drop size, atmospheric scattering starts to become important. That means that it is not possible to use the simple 
+Rayleigh approximation for cloud water absorption but one rather needs to apply the full Mie absorption theory. This requires additional input such as size and form of the rain drops. 
+However, those parameter are not readily available. Nevertheless, using {cite:t}`Liebe1993` atmospheric microwave propagation model [Equation](eqatm45a),
+ one can obtained a ‘rough’ estimate of the values of  $\tau$ for the three L-, C- and X-band frequencies as function of rain rate as illustrated in {numref}`rain`
+
+```{figure} rain.png
+--- 
+name: rain
+---
+Square of the atmospheric transmittance $\tau^2$ as function of surface rain rate (in millimeters per hour) for (black) L-band, (red) C-band and
+(magenta) X-band
+```
+
+According to that model, L-band $T_{B}$s are very little attenuated by rain compared to C- and X- bands. 
+C- band attenuation coefficient is found about 1/3rd of the X-band at most rain rate. At C-band and X frequency bands, 
+atmospheric absorption, emission, and scattering associated with high cloud liquid and ice water content and intense precipitations have large impacts on the brightness temperatures.
+
+
+#### The Q inversion method for Moderate Resolution all weather winds from CIMR
+
+##### All Weather L-band chanel OWV 
+
+As shown in {numref}`rain`, L-band chanel is almost unaffected by rain  
+
 ### Accounting for rotation of the polarization plane in the Stokes vector ###
 
 In this section, we summarize the Stokes vector transformation that is applied to the forward model from the surface basis to the instrument antenna frame basis,
@@ -2800,15 +2936,17 @@ worse/better $NRF$.
 
 The values of the resampling weights  $A_i$ , the fit $Q$ and the $NRF$ depend all on the scanning geometry and the scan azimuth angle.
 
-The target cells for the CIMR L2OWV products are centered on the center points of a fixed $0.15^{\circ}$ Earth grid whose vertices are located at $0^{\circ},0.15^{\circ},0.3^{\circ}$, ....
-longitude and at $0^{\circ},\pm 0.15^{\circ},\pm 0.30^{\circ}$, ..., latitude. 
+The target cells for the CIMR L2OWV products at Moderate spatial Resolution are centered on the center points of a fixed $0.15^{\circ}$ Earth grids whose vertices are located at $0^{\circ},0.15^{\circ},0.3^{\circ}$, ....
+longitude and at $0^{\circ},\pm 0.15^{\circ},\pm 0.30^{\circ}$, ..., latitude. For the CIMR L2OWV products at Low spatial Resolution, the data
+ are centered on the center points of a fixed $0.4^{\circ}$ Earth grids whose vertices are located at $0^{\circ},0.4^{\circ},0.8^{\circ}$, ....
+longitude and at $0^{\circ},\pm 0.4^{\circ},\pm 0.80^{\circ}$, ..., latitude.
 The target gain patterns $g_i$ are the same as the original EFOV Ka-, ku-, X-, C- and L-band footprints. For the smoothing factor $\beta$ a value of 0.5 is chosen. 
 This results in an average NRF of about 0.4.
 
 The BG OI that can be applied in the CIMR L1B processing of the OVW retrieval algorithm can actually be done in two steps. 
 The first step in the resampling is to take a single scan and adjustment the position of the observations to corresponds to integer azimuth angles (i.e. $0^{\circ}$ to $359^{\circ}$).
 The sampling in the along-scan direction well exceeds Nyquist sampling, and therefore the fit accuracy of the resampled data shall be very high. 
-The second step is the resampling onto the fixed $0.15^{\circ}$. 
+The second step is the resampling onto either the fixed $0.15^{\circ}\times 0.15^{\circ}$ or $0.4^{\circ}\times 0.4^{\circ}$ grids. 
 
 ### Ocean Wind Vector inversion algorithm
 
